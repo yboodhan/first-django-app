@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+# Declaring classes automatically generates tables and fields
+# Primary keys are added automatically
+
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
@@ -10,3 +13,7 @@ class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
+
+# Run with:
+# python manage.py makemigrations polls
+# python manage.py migrate
