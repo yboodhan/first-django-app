@@ -29,3 +29,6 @@ class Choice(models.Model):
 # Run with:
 # python manage.py makemigrations polls
 # python manage.py migrate
+# python manage.py shell
+
+# Superuser: python manage.py createsuperuser, testuser, testuser@email.com
