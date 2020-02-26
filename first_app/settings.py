@@ -73,10 +73,23 @@ WSGI_APPLICATION = 'first_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# Steps:
+# 1) psql
+# 2) CREATE DATABASE djangopoll;
+# 3) \connect djangopoll;
+# 4) CREATE USER testuser WITH PASSWORD 'Nalini2275';
+# 5) ALTER ROLE testuser SET client_encoding TO 'utf8';
+# 6) ALTER ROLE testuser SET default_transaction_isolation TO 'read committed';
+# 7) ALTER ROLE testuser SET timezone TO 'UTC';
+# 8) GRANT ALL PRIVILEGES ON DATABASE djangopoll TO testuser;
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'djangopoll',
+        'USER': 'testuser',
+        'PASSWORD': 'Nalini2275',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
